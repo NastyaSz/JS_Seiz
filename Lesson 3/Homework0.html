@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Homework</title>
+    <style>
+        .wrapper {
+            width: max-content;
+            margin: 0 auto;
+        }
+
+        #timer {
+            font-size: 24px;
+            color: red;
+            margin: 30px 75px 20px 62px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- Создайте счетчик секунд, который начинает отчет с 1 и заканчивается на 30,
+также добавьте кнопки которые останавливают отчет, и запускают его заново и добавьте кнопку
+обнуляющую отcчет. Также попробуйте изменить код так чтобы отсчет начинался с 30 и заканчивался на 1. -->
+    <div class="wrapper">
+        <div id="timer">0</div>
+        <input type="button" value="Start" onclick="startTimer()">
+        <input type="button" value="Stop" onclick="stopTimer()">
+        <input type="button" value="Restart" onclick="restartTimer()">
+    </div>
+
+    <script>
+        let timer = document.getElementById("timer");
+        let b;
+        //Таймер от 1 до 30
+        // let count = 1;
+        // function startTimer() {
+        //     b = setInterval(function () {
+        //         timer.innerText = count++;
+        //         if (count > 30) {
+        //             clearInterval(b);
+        //         }
+        //     }, 1000);
+        // }
+        // function stopTimer(){
+        //     clearInterval(b);
+        // }
+        // function restartTimer(){
+        //     clearInterval(b);
+        //     count = 1;
+        //     timer.innerText = count;
+        // }
+
+        // Таймер от 30 до 1
+        let count = 30;
+        function startTimer() {
+            b = setInterval(function () {
+                timer.innerText = count--;
+                if (count < 1) {
+                    clearInterval(b);
+                }
+            }, 1000);
+        }
+        function stopTimer() {
+            clearInterval(b);
+        }
+        function restartTimer() {
+            clearInterval(b);
+            count = 30;
+            timer.innerText = count;
+        }
+
+
+    </script>
+</body>
+
+</html>

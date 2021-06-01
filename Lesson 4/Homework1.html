@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Ключевое слово this</title>
+    <style>
+        body{
+            display: flex;
+        }
+        div {
+            background-color: green;
+            display: inline-block;
+            height: 100px;
+            width: 100px;
+            margin: 10px;
+        }
+    </style>
+</head>
+
+<body>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <script>
+        var divArr = document.getElementsByTagName("div");
+        function getRandom(min, max) {
+            min = Math.ceil(min);
+            max = Math.floor(max);
+            return Math.floor(Math.random() * (max - min + 1)) + min;
+        }
+        for (var i = 0; i < divArr.length; i++) {
+            let r = getRandom(0, 255);
+            let g = getRandom(0, 255);
+            let b = getRandom(0, 255);
+            divArr[i].onmouseenter = function () {
+                this.style.backgroundColor = `rgb(${r},${g},${b})`;
+                this.innerText = this.style.backgroundColor;
+            }
+        }
+        window.onbeforeunload = function () {
+            return false;
+        }; 
+
+    </script>
+
+</body>
+
+</html>

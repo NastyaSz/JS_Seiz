@@ -1,0 +1,52 @@
+<!-- Напишите регулярные выражения, которые будут выбирать 
+    индекс - 55535 - 5 numbers
+    ip адресс, пример 255.255.255.255
+    цены в долларах - $0.84, $1232.84, $4
+    дата в виде - 30/12/2016 - день, месяц, год
+ -->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+
+<body>
+    Lorem ipsum dolor sit amet 55555 consectetur adipisicing elit. Fuga deserunt 48961 rerum atque vero soluta error
+    illo, mollitia hic necessitatibus harum 33125 ipsam veniam! Placeat cumque tempore voluptatibus velit quo quasi
+    dolores.
+    250.255.255.255
+    254.001.250.245
+    005.250.254.255
+    30/12/2016
+    3/12/1996
+    $0.84, $1232.84, $4
+    <script type="text/javascript">
+        let pattern = /\d{5}/g;
+        let text = document.querySelector('body').innerText;
+        console.log(text);
+        text.match(pattern).forEach(element => {
+            console.log(element);
+        });
+
+        pattern = /([01][0-9][0-9]|2[0-4][0-9]|25[0-5])\.([01][0-9][0-9]|2[0-4][0-9]|25[0-5])\.([01][0-9][0-9]|2[0-4][0-9]|25[0-5])\.([01][0-9][0-9]|2[0-4][0-9]|25[0-5])/g;
+        text.match(pattern).forEach(element => {
+            console.log(element);
+        });
+
+        pattern = /\$[0-9]*\.[0-9]*|\$[0-9]*/g;
+        text.match(pattern).forEach(element => {
+            console.log(element);
+        });
+
+        pattern = /\d{1,2}\/\d{1,2}\/\d{4}/g;
+        text.match(pattern).forEach(element => {
+            console.log(element);
+        });
+
+
+    </script>
+</body>
+
+</html>
