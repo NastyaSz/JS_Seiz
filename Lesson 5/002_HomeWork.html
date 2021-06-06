@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>Homework</title>
+</head>
+
+<body>
+    <!--
+    1. Создайте 5 блоков с текстом. Добавьте в каждый из блоков кнопку для его удаления.
+    Используйте только один обработчик.
+
+    2. Доработайте пример 004_Attr_Tech.html таким образом, чтобы при наведении на span элементы,
+    подсказка сплыва под ними, а не в модальном окне. Используйте addEventListener -->
+    <div id="main_div">
+        <div class="div">1.Lorem ipsum dolor sit, amet consectetur adipisicing elit. Sint deserunt adipisci explicabo iste dignissimos
+            eligendi. Ducimus magni, culpa repellat, eligendi ab esse fugit adipisci quo facilis et possimus in
+            perspiciatis!
+            <button>Удалить</button>
+        </div>
+        <div class="div">2.Lorem ipsum dolor sit amet consectetur adipisicing elit. Facere maiores a, quas impedit repudiandae hic accusamus dolor nisi excepturi aut veritatis natus velit fuga? Amet consequatur dolorem sint fugit doloremque!
+            <button>Удалить</button>
+        </div>
+        <div class="div">3.Lorem ipsum dolor sit amet, consectetur adipisicing elit. Veritatis dolorem laborum earum perspiciatis tenetur sit sequi sunt quam cum dolore, maiores dolores odio doloremque hic voluptatem. Magnam nam necessitatibus consequatur.
+            <button>Удалить</button>
+        </div>
+        <div class="div">4.Lorem ipsum dolor sit amet consectetur adipisicing elit. Reprehenderit rem quasi repudiandae asperiores illum accusamus ducimus, iure impedit omnis quod cupiditate cumque aut sed nisi inventore eveniet nemo est perferendis?
+            <button>Удалить</button>
+        </div>
+        <div class="div">5.Lorem ipsum dolor sit amet consectetur adipisicing elit. Beatae impedit natus quisquam, ratione eaque eius aperiam quaerat ab optio neque at fuga rerum dignissimos voluptatibus iure. Laudantium dolore quisquam at.
+            <button>Удалить</button>
+        </div>
+    </div>
+
+    <script>
+        let mainDiv = document.getElementById("main_div");
+
+        mainDiv.addEventListener("click", function(event){
+            if(event.target.tagName != "BUTTON") return;
+            let div = event.target.closest("div");
+            div.remove();
+        });
+    </script>
+</body>
+
+</html>
