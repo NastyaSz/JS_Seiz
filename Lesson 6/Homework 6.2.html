@@ -1,0 +1,53 @@
+<!-- 2. создайте div, при клике на него, div начинает двигаться вправо, при клике на кнопку - останавливается,
+	при попадании div к краю окна, он переходит к началу окна. -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HW 6.2</title>
+    <style>
+        #moveRight{
+            width: 100px; 
+			height: 100px; 
+			background-color: red; 
+			position: absolute;
+            left: 5px;
+        }
+        #stop{
+            position:fixed;
+            top:120px;
+            padding: 5px;
+            font-size: 18px;
+
+        }
+    </style>
+</head>
+<body>
+    <div id="moveRight"></div>
+    <button id = "stop">Stop</button>
+
+    <script>
+        let moveRight = document.querySelector("#moveRight");
+        let button = document.querySelector("#stop");
+        let moveElement;
+        let bodyWidth = parseInt(getComputedStyle(document.querySelector("body")).width);
+        moveRight.addEventListener("click", function(e){
+            let div = e.target;
+            let left = parseInt(getComputedStyle(div).left);
+            let width = parseInt(getComputedStyle(div).width);
+            moveElement = setInterval(function(){
+                if(width + left > bodyWidth) left = 5;
+                left++;
+                div.style.left = left + "px";
+            }, 1)
+        }
+        );
+        button.addEventListener("click", function(){
+            clearInterval(moveElement);
+        } );
+    </script>
+</body>
+</html>

@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html >
+<head>
+    <meta charset="UTF-8">
+	<title>HomeWork</title>
+	<style>
+		#dragElement{
+			width: 100px; 
+			height: 100px; 
+			background-color: green; 
+			position: absolute;
+		}
+
+	</style>
+</head>
+<body>
+    <!-- 
+	1. drag and drop;
+	-->
+	<div draggable="true" id="dragElement"></div>
+
+	<script>
+		let dragElement = document.querySelector("#dragElement");
+
+		dragElement.addEventListener("dragend", (e) =>{
+			e.target.style.left = e.pageX - dragElement.offsetWidth /2 + "px";
+			e.target.style.top = e.pageY - dragElement.offsetHeight /2 + "px";
+		});
+	</script>
+</body>
+</html>

@@ -1,0 +1,57 @@
+<!-- Реализуйте последние 2 слайда в презентации с помощью пройденого на уроке материала -->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HW 2.2</title>
+</head>
+
+<body>
+    <!-- Полиморфизм -->
+    <script>
+        class Doctor {
+            constructor() {
+                this.walk = function () {
+                    return "walk";
+                }
+                this.eat = function () {
+                    return "eat";
+                }
+                this.drink = function () {
+                    return "drink";
+                }
+                this.cure = function () {
+                    return "cure";
+                }
+
+            }
+        }
+
+        class Dentist extends Doctor {
+            constructor(walk, eat, drink, cure) {
+                super(walk, eat, drink, cure)
+                this.cure = function () {
+                    return "I can cure treat teeth";
+                }
+            }
+        }
+        let a = new Dentist;
+        console.log(a.cure());
+
+        class Surgeon extends Doctor {
+            constructor(walk, eat, drink, cure) {
+                super(walk, eat, drink, cure)
+                this.cure = function () {
+                    return "I can perform operations";
+                }
+            }
+        }
+        let b = new Surgeon;
+        console.log(b.cure());
+    </script>
+</body>
+
+</html>
