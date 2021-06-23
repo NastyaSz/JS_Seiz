@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Homework</title>
+    <style>
+        input{
+            margin: 5px;
+            padding: 5px;
+        }
+        .form {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: space-around;
+            background-color: antiquewhite;
+            width: 400px;
+            margin: auto;
+            border: 4px double gray;
+            border-radius: 18px;
+        }
+        
+        #information{
+            display: none;
+        }
+    </style>
+</head>
+
+<body>
+
+    <form class="form" id="login">
+        <p>Введите имя пользователя</p>
+        <input type="text" name="" id="user" placeholder="Enter your login">
+        <input type="button" value="submit" name="submit" id="submit">
+    </form>
+    <form action="" class="form" id="information">
+        <p id ="loginInfo"></p>
+        <input type="button" value="Exit" name="Exit" id="exit">
+    </form>
+    <script>
+        let login = document.querySelector("#login");
+        let info = document.querySelector("#information");
+        let userName = document.querySelector("#user");
+        // document.cookie = "login = Admin";
+
+        // function getCookie(){
+        //     let value = document.cookie.split("=");
+        //     return value[1];
+        // }
+
+        // document.querySelector("#submit").addEventListener("click", function(){
+        //     let cookie = getCookie();
+        //     if(userName.value === cookie || userName.value === cookie.toLowerCase()){
+        //         login.style.display = "none";
+        //         info.style.display = "flex";
+        //         document.querySelector("#loginInfo").innerText = `Пользователь ${userName.value} вошел в систему`;
+        //     }
+        // } );
+
+        // document.querySelector("#exit").addEventListener("click", function(){
+        //         login.style.display = "flex";
+        //         info.style.display = "none";
+        //         userName.value = "";
+        // });
+
+        // Local Storage
+
+        window.localStorage.login = "Admin";
+
+        document.querySelector("#submit").addEventListener("click", function(){
+            if(userName.value === window.localStorage.getItem("login") || userName.value === window.localStorage.getItem("login").toLowerCase()){
+                login.style.display = "none";
+                info.style.display = "flex";
+                document.querySelector("#loginInfo").innerText = `Пользователь ${userName.value} вошел в систему`;
+            }
+        }, false );
+
+        document.querySelector("#exit").addEventListener("click", function(){
+                login.style.display = "flex";
+                info.style.display = "none";
+                userName.value = "";
+        });
+
+    </script>
+
+    <!-- Создайте страницу которая запрашивает имя пользователя, если пользователь вводит "Admin" либо "admin" он попадает на страницу,
+    которая оповещает его о том что " Пользоваетль Admin(не статическая строка, а данные что ввел пользователь) вошел в систему"
+    а рядом разместите кнопку "Выход" которая вернет пользователя к модальному окну ввода логина. Реализуйте код как для куки так и для localstorage. -->
+</body>
+
+</html>
